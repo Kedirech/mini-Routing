@@ -1,0 +1,19 @@
+
+
+
+<div class = "product" ng-repeat="(productId,product) in products">
+  <img ng-src = '{{product.giphyUrl}}'>
+  <p>
+  Product: {{product.type}} </p>
+  <p> Color: <span ng-style = "{color:'{{product.color.toLowerCase().replace(' ','')}}'}">{{product.color}}</span>
+  </p>
+  <p> Size: <span>{{product.size}} </span></p>
+  <button ng-click = "removeProduct(productId)">Delete Me</button>
+</div>
+
+<form class = "newProduct" ng-submit = "addNewProduct()">
+  <input type  = "text" ng-model = "newProduct.type" placeholder = "Product Type">
+  <input type  = "text" ng-model = "newProduct.color" placeholder = "Product Color">
+  <input type  = "text" ng-model = "newProduct.size" placeholder = "Product Size">
+  <button type = "submit">New Product</button>
+</form >

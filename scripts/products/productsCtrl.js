@@ -1,6 +1,14 @@
 var app = angular.module("miniRouting");
 
 app.controller("productsCtrl", function($scope, $routeParams, productsService, giphyService){
+
+  $scope.$on("productUpdate", function(event, args){
+    console.log("Updated");
+    $scope.products = productsService.getProductsByType($scope.id);
+    console.log($scope.products);
+    $scope.$apply();
+  });
+
   $scope.id = $routeParams.id;
   $scope.products = productsService.getProductsByType($scope.id);
 
@@ -19,4 +27,5 @@ app.controller("productsCtrl", function($scope, $routeParams, productsService, g
     delete($scope.products[productId]);
   }
 
+  
 })
